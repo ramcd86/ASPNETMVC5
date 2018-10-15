@@ -17,11 +17,17 @@ namespace Vidly.Controllers
                 Name = "Shrek!"
 
             };
-            //return view(movie);
+
+            //ViewData["Movie"] = movie;
+
+            //ViewBag.Movie = movie;
+
+            return View(movie);
+
             //return Content("hello buddy");
             //return HttpNotFound();
             //return new EmptyResult();
-            return RedirectToAction("Edit", "Movies", new {id = 39687, person = "me!", boo = true});
+            //return RedirectToAction("Edit", "Movies", new {id = 39687, person = "me!", boo = true});
         }
 
         [HttpGet]
@@ -55,6 +61,7 @@ namespace Vidly.Controllers
             return Content(string.Format("pageIndex={0}&sortby={1}", pageIndex, sortBy));
         }
 
+        [Route("movies/release/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int? year, int month)
         {
 
