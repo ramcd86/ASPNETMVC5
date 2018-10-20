@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 // NAMESPACE DEPENDENCIES
 using Vidly.Models;
 using Vidly.ViewModels;
@@ -15,7 +16,6 @@ namespace Vidly.Controllers
         // Properties can be scoped to the class, or to the method nested in the class. 
         // Properties once declared can be accessed inside of methods.
         // this. annotation is not necessary to access these properties, but may be good practice?
-
         public List<GoodsListModel> goodsList = new List<GoodsListModel>
         {
             new GoodsListModel{ Id = 1, GoodsName = "Bananas", GoodsPrice = "£0.99" },
