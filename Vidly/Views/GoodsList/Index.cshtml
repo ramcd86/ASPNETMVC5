@@ -1,0 +1,41 @@
+﻿
+@using WebGrease.Css.Ast
+@model Vidly.ViewModels.GoodsListViewModel
+
+@*
+    // 'Model' template object can now access properties of 'Vidly.ViewModels.GoodsListViewModel'
+    // Variables, Functions, If Statements, Loops, etc, can be declared in these templates.    
+    // In-line template logic that is declared at the start of the template must be wrapped in a 'Block'
+    // Like so: @ { ##LOGIC## }
+    // Be aware that C# ViewModel native methods are not well differentiated by syntax or coloration, sucha s 'Count'.
+
+
+    // Variable declared in for loop is arbitrary, like in Angular templates.
+    // "GoodsList" is of type List, which returns an array-like item filled with Objects, or Models we populated from the Controller.
+    // We assign each iteration of the List to the 'GoodsName' variable, and access its properties via the Object DOT notation.
+    
+
+    // We can comfortably nest logic inside of HTML markup so long as the logic is prefixed with an @
+*@
+
+@{
+    var headerText = Model.GoodsList.Count() > 2 ? "We have lots of items!" : "We're a bit low.";
+
+}
+
+<h2>@headerText</h2>
+
+<div class="row">
+    @foreach (var GoodsName in Model.GoodsList)
+    {
+        <div class="col-md-1">
+            <p>@GoodsName.Id</p>
+        </div>
+        <div class="col-md-3">
+            <p><strong>@GoodsName.GoodsName</strong></p>
+        </div>
+        <div class="col-md-8">
+            <p>@GoodsName.GoodsPrice</p>
+        </div>
+    }
+</div>
