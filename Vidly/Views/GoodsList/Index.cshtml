@@ -7,7 +7,7 @@
     // Variables, Functions, If Statements, Loops, etc, can be declared in these templates.    
     // In-line template logic that is declared at the start of the template must be wrapped in a 'Block'
     // Like so: @ { ##LOGIC## }
-    // Be aware that C# ViewModel native methods are not well differentiated by syntax or coloration, sucha s 'Count'.
+    // Be aware that C# ViewModel native methods are not well differentiated by syntax or coloration, such as 'Count'.
 
 
     // Variable declared in for loop is arbitrary, like in Angular templates.
@@ -32,7 +32,12 @@
             <p>@GoodsName.Id</p>
         </div>
         <div class="col-md-3">
-            <p><strong>@GoodsName.GoodsName</strong></p>
+            @*
+                // Use the Html.ActionLink method to dynamically generate links.
+                // Format is 'Link Name', 'Controller'?, 'Controller Method'?, 'Parameter'?
+                // Parameter MUST be passed as an anonymous object.
+            *@
+            <p><strong>@Html.ActionLink(GoodsName.GoodsName, "Selected", new {Id = GoodsName.Id})</strong></p>
         </div>
         <div class="col-md-8">
             <p>@GoodsName.GoodsPrice</p>
